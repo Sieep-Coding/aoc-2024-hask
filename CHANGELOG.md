@@ -1,5 +1,5 @@
 # Revision history for aoc2024-hask
 
-## 0.1.0.0 -- YYYY-mm-dd
+## 0.1.0.0 -- 2024-12-3
 
-* First version. Released on an unsuspecting world.
+* Completed day 1
