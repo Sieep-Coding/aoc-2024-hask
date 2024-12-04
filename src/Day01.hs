@@ -1,13 +1,22 @@
-module Day01 (mySolution, parseInput) where
+module Day01 (mySolution, parseInput, similarityScore, countInRight) where
 
 import Data.List (sort)
 
+-- Part 1
 mySolution :: [Int] -> [Int] -> Int
 mySolution leftList rightList = 
     let sortedLeft = sort leftList
         sortedRight = sort rightList
         distances = zipWith (\x y -> abs (x - y)) sortedLeft sortedRight
     in sum distances
+
+-- Part 2
+similarityScore :: [Int] -> [Int] -> Int
+similarityScore leftList rightList =
+    sum [x * countInRight x rightList | x <- leftList]
+
+countInRight :: Int -> [Int] -> Int
+countInRight x rightList = length (filter (== x) rightList)
 
 -- Helper Functions
 parseInput :: String -> ([Int], [Int])
