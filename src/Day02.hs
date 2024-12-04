@@ -10,7 +10,7 @@ isSafe levels = isStrictlyIncreasingOrDecreasing levels && allValidDiffs levels
 isStrictlyIncreasingOrDecreasing :: [Int] -> Bool
 isStrictlyIncreasingOrDecreasing (x : y : xs) =
   let diffs = zipWith (-) (y : xs) (x : xs)
-  in (all (> 0) diffs) || (all (< 0) diffs) -- Strictly increasing or strictly decreasing
+  in all (> 0) diffs || all (< 0) diffs -- Strictly increasing or strictly decreasing
 isStrictlyIncreasingOrDecreasing _ = False
 
 -- Check if the difference between adjacent levels is between 1 and 3
@@ -32,4 +32,4 @@ countSafeReports reports =
 printSafeReports :: [[Int]] -> IO ()
 printSafeReports reports = do
     let safeReports = filter isSafe reports
-    mapM_ (putStrLn . show) safeReports
+    mapM_ (print . show) safeReports
