@@ -15,10 +15,7 @@ similarityScore :: [Int] -> [Int] -> Int
 similarityScore leftList rightList =
     sum [x * countInRight x rightList | x <- leftList]
 
-countInRight :: Int -> [Int] -> Int
-countInRight x rightList = length (filter (== x) rightList)
-
--- Helper Functions
+-- Helper Functions (Part 1)
 parseInput :: String -> ([Int], [Int])
 parseInput input =
     let rows = lines input
@@ -31,3 +28,7 @@ parseRow row =
     case words row of
         [l, r] -> (read l, read r)
         _ -> error $ "invalid row format" ++row
+
+-- Helper Functions (Part 2)
+countInRight :: Int -> [Int] -> Int
+countInRight x rightList = length (filter (== x) rightList)
